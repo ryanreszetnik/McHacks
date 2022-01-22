@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   console.log("I should be texting you but i am not :(", resp);
 
     await client.messages
-        .create({body: 'Hi Sehr', from: '+12264076113', to: resp.phone_number})
+        .create({body: 'Hi Max - you are doing great <3', from: '+12264076113', to: resp.phone_number})
         .then(message => console.log(message.sid));
         //.then(call => console.log(call.sid));\
 
