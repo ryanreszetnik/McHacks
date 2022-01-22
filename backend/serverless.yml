@@ -30,8 +30,31 @@ functions:
       - cognitoUserPool:
           pool: MyUserPool
           trigger: PostConfirmation
+  app-load:
+    handler: endpoints/http-app-load.handler
+    events:
+      - http:
+          path: /
+          method: GET
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
 resources:
   Resources:
+    ApiGatewayAuthorizer:
+      Type: AWS::ApiGateway::Authorizer
+      Properties:
+        Name: CognitoUserPool
+        Type: COGNITO_USER_POOLS
+        IdentitySource: method.request.header.Authorization
+        RestApiId:
+          Ref: ApiGatewayRestApi
+        ProviderARNs:
+          - Fn::GetAtt:
+              - CognitoUserPoolMyUserPool
+              - Arn
     CognitoSMSRole:
       Type: AWS::IAM::Role
       Properties:
