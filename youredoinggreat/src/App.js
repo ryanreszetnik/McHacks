@@ -9,39 +9,23 @@ import { Button } from "@mui/material";
 import { appLoad, callMe, textMe } from "./Endpoints";
 import { useDispatch } from "react-redux";
 import { SET_USER } from "./Constants/reducerEvents";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import Header from "./Components/Header/Header";
+import Preferences from "./Pages/Preferences";
 
 Amplify.configure(awsConfig);
 
 function App() {
-  const dispatch = useDispatch();
-  const send = async () => {
-    console.log(await appLoad());
-  };
-
-  const call = async () => {
-    console.log(await callMe());
-  };
-
-  const text = async () => {
-    console.log(await textMe());
-  };
-  const login = async () => {
-    const usersession = await Auth.currentSession();
-    dispatch({ type: SET_USER, payload: usersession });
-  };
-  useEffect(() => {
-    login();
-  }, []);
   return (
-    <div className="App">
-      <Signup />
-      <ConfirmPhone />
-      <Signin />
-      <Button onClick={send}>Send</Button>
-      <Button onClick={call}>Call Me</Button>
-      <Button onClick={text}>Text Me</Button>
-    </div>
+    <Fragment>
+      <Header />
+      <Routes>
+        <Route path="/*" element={<Home />} />
+        <Route path="/preferences" element={<Preferences />} />
+      </Routes>
+    </Fragment>
   );
 }
 
