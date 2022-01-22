@@ -23,3 +23,8 @@ export const appLoad = async () => {
   console.log(headers);
   return await API.get("GeneralEndpoint", "/", { headers });
 };
+
+export const callMe = async () => {
+  console.log(headers);
+  return await API.put("GeneralEndpoint", "/call", { headers,body:{} });
+};
