@@ -28,3 +28,8 @@ export const callMe = async () => {
   console.log(headers);
   return await API.put("GeneralEndpoint", "/call", { headers,body:{} });
 };
+
+export const textMe = async () => {
+  console.log(headers);
+  return await API.put("GeneralEndpoint", "/text", { headers,body:{} });
+};

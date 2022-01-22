@@ -6,7 +6,7 @@ import { awsConfig } from "./credentials";
 import ConfirmPhone from "./Authentication/ConfirmPhone";
 import Signin from "./Authentication/Signin";
 import { Button } from "@mui/material";
-import { appLoad, callMe } from "./Endpoints";
+import { appLoad, callMe, textMe } from "./Endpoints";
 
 Amplify.configure(awsConfig);
 
@@ -18,6 +18,10 @@ function App() {
   const call = async () => {
     console.log(await callMe());
   };
+
+  const text = async () => {
+    console.log(await textMe());
+  };
   return (
     <div className="App">
       <Signup />
@@ -25,6 +29,7 @@ function App() {
       <Signin />
       <Button onClick={send}>Send</Button>
       <Button onClick={call}>Call Me</Button>
+      <Button onClick={text}>Text Me</Button>
     </div>
   );
 }

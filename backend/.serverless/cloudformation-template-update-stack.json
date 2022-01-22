@@ -89,6 +89,12 @@
         "LogGroupName": "/aws/lambda/doing-great-backend-dev-call-me"
       }
     },
+    "TextDashmeLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/doing-great-backend-dev-text-me"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -181,7 +187,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/doing-great-backend/dev/1642842271271-2022-01-22T09:04:31.271Z/doing-great-backend.zip"
+          "S3Key": "serverless/doing-great-backend/dev/1642879035698-2022-01-22T19:17:15.698Z/doing-great-backend.zip"
         },
         "Handler": "endpoints/http-register-account.handler",
         "Runtime": "nodejs12.x",
@@ -211,7 +217,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/doing-great-backend/dev/1642842271271-2022-01-22T09:04:31.271Z/doing-great-backend.zip"
+          "S3Key": "serverless/doing-great-backend/dev/1642879035698-2022-01-22T19:17:15.698Z/doing-great-backend.zip"
         },
         "Handler": "endpoints/http-app-load.handler",
         "Runtime": "nodejs12.x",
@@ -241,7 +247,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/doing-great-backend/dev/1642842271271-2022-01-22T09:04:31.271Z/doing-great-backend.zip"
+          "S3Key": "serverless/doing-great-backend/dev/1642879035698-2022-01-22T19:17:15.698Z/doing-great-backend.zip"
         },
         "Handler": "endpoints/http-call-me.handler",
         "Runtime": "nodejs12.x",
@@ -264,34 +270,74 @@
         "CallDashmeLogGroup"
       ]
     },
-    "RegisterDashaccountLambdaVersionpkR1sV5qM5MbsBXVHwN8XdQeaDwf2Bfpxg3eIfej4U": {
+    "TextDashmeLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/doing-great-backend/dev/1642879035698-2022-01-22T19:17:15.698Z/doing-great-backend.zip"
+        },
+        "Handler": "endpoints/http-text-me.handler",
+        "Runtime": "nodejs12.x",
+        "FunctionName": "doing-great-backend-dev-text-me",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DOMAIN_SUFFIX": "youre-doing-great"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "TextDashmeLogGroup"
+      ]
+    },
+    "RegisterDashaccountLambdaVersion93X79Yr0sTLWEzZX1sRevfUldv37Z3SxhU1ngX8AE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterDashaccountLambdaFunction"
         },
-        "CodeSha256": "hijdCTZgvq73uAJ2BeggbWnNBVlp7N/Oyk8b9atyt5s="
+        "CodeSha256": "yXvWMYNlTVff4cVdV/E5pgX0Vbe2J98ztd8gvfhyleM="
       }
     },
-    "AppDashloadLambdaVersionD9eky4jZtOioT2jISgp2NDmA0FcUcfhtK6xniMVLo": {
+    "AppDashloadLambdaVersionhVnFMHTuYl5TBzgMF6OdPNysL8BUO6menlJwrFz7Ko": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppDashloadLambdaFunction"
         },
-        "CodeSha256": "hijdCTZgvq73uAJ2BeggbWnNBVlp7N/Oyk8b9atyt5s="
+        "CodeSha256": "yXvWMYNlTVff4cVdV/E5pgX0Vbe2J98ztd8gvfhyleM="
       }
     },
-    "CallDashmeLambdaVersionF2ejxC1mZvUQuJMeFJHKF0KJzaqm8PrrPyhNHB2i0": {
+    "CallDashmeLambdaVersionQxlartq1emoGcOe36MaCXH6H36VVlGCoTGeYiftX4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CallDashmeLambdaFunction"
         },
-        "CodeSha256": "hijdCTZgvq73uAJ2BeggbWnNBVlp7N/Oyk8b9atyt5s="
+        "CodeSha256": "yXvWMYNlTVff4cVdV/E5pgX0Vbe2J98ztd8gvfhyleM="
+      }
+    },
+    "TextDashmeLambdaVersion9A3hXxdUGg4QGCVQqE6YXX2Cbs3zfZIsrmgZuJkEY": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "TextDashmeLambdaFunction"
+        },
+        "CodeSha256": "yXvWMYNlTVff4cVdV/E5pgX0Vbe2J98ztd8gvfhyleM="
       }
     },
     "ApiGatewayRestApi": {
@@ -316,6 +362,21 @@
           ]
         },
         "PathPart": "call",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceText": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "text",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -408,6 +469,51 @@
         },
         "ResourceId": {
           "Ref": "ApiGatewayResourceCall"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodTextOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PUT'"
+              },
+              "ResponseTemplates": {
+                "application/json": ""
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceText"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -515,7 +621,56 @@
         "CallDashmeLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1642842269693": {
+    "ApiGatewayMethodTextPut": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "PUT",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceText"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "COGNITO_USER_POOLS",
+        "AuthorizerId": {
+          "Ref": "ApiGatewayAuthorizer"
+        },
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "TextDashmeLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "TextDashmeLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayDeployment1642879032269": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -526,8 +681,10 @@
       "DependsOn": [
         "ApiGatewayMethodOptions",
         "ApiGatewayMethodCallOptions",
+        "ApiGatewayMethodTextOptions",
         "ApiGatewayMethodGet",
-        "ApiGatewayMethodCallPut"
+        "ApiGatewayMethodCallPut",
+        "ApiGatewayMethodTextPut"
       ]
     },
     "AppDashloadLambdaPermissionApiGateway": {
@@ -573,6 +730,43 @@
         "FunctionName": {
           "Fn::GetAtt": [
             "CallDashmeLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "TextDashmeLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "TextDashmeLambdaFunction",
             "Arn"
           ]
         },
@@ -768,7 +962,7 @@
     "RegisterDashaccountLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterDashaccountLambdaVersionpkR1sV5qM5MbsBXVHwN8XdQeaDwf2Bfpxg3eIfej4U"
+        "Ref": "RegisterDashaccountLambdaVersion93X79Yr0sTLWEzZX1sRevfUldv37Z3SxhU1ngX8AE"
       },
       "Export": {
         "Name": "sls-doing-great-backend-dev-RegisterDashaccountLambdaFunctionQualifiedArn"
@@ -777,7 +971,7 @@
     "AppDashloadLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppDashloadLambdaVersionD9eky4jZtOioT2jISgp2NDmA0FcUcfhtK6xniMVLo"
+        "Ref": "AppDashloadLambdaVersionhVnFMHTuYl5TBzgMF6OdPNysL8BUO6menlJwrFz7Ko"
       },
       "Export": {
         "Name": "sls-doing-great-backend-dev-AppDashloadLambdaFunctionQualifiedArn"
@@ -786,10 +980,19 @@
     "CallDashmeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CallDashmeLambdaVersionF2ejxC1mZvUQuJMeFJHKF0KJzaqm8PrrPyhNHB2i0"
+        "Ref": "CallDashmeLambdaVersionQxlartq1emoGcOe36MaCXH6H36VVlGCoTGeYiftX4"
       },
       "Export": {
         "Name": "sls-doing-great-backend-dev-CallDashmeLambdaFunctionQualifiedArn"
+      }
+    },
+    "TextDashmeLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "TextDashmeLambdaVersion9A3hXxdUGg4QGCVQqE6YXX2Cbs3zfZIsrmgZuJkEY"
+      },
+      "Export": {
+        "Name": "sls-doing-great-backend-dev-TextDashmeLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
