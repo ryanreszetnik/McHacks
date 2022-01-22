@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Auth } from "aws-amplify";
+import { useDispatch } from "react-redux";
+import { SET_USER } from "../Constants/reducerEvents";
 export default function Signin() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const submit = async () => {
     try {
       console.log(await Auth.signIn(phone, password));
       const usersession = await Auth.currentSession();
-      const user = await Auth.currentUserInfo();
-      console.log(usersession, user);
+      // const user = await Auth.currentUserInfo();
+      dispatch({ type: SET_USER, payload: usersession });
     } catch (e) {
       console.log(e);
     }
