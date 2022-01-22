@@ -1,0 +1,93 @@
+service: doing-great-backend
+
+frameworkVersion: "2"
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    DOMAIN_SUFFIX: youre-doing-great
+  lambdaHashingVersion: 20201221
+  profile: serverlessUser
+  stage: dev
+  region: ca-central-1
+  httpApi:
+    cors: true
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+        - lambda:*
+      Resource: "*"
+functions:
+  register-account:
+    handler: endpoints/http-register-account.handler
+    events:
+      - cognitoUserPool:
+          pool: MyUserPool
+          trigger: PostConfirmation
+resources:
+  Resources:
+    CognitoSMSRole:
+      Type: AWS::IAM::Role
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Principal:
+                Service:
+                  - "cognito-idp.amazonaws.com"
+              Action:
+                - "sts:AssumeRole"
+              Condition:
+                StringEquals:
+                  "sts:ExternalId": "sms-external-id-doing-great"
+        Path: "/"
+    CognitoSMSPolicy:
+      Type: "AWS::IAM::Policy"
+      Properties:
+        PolicyName: "CognitoSMSPolicy"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Action:
+                - "sns:publish"
+              Resource:
+                - "*"
+        Roles:
+          - Ref: CognitoSMSRole
+    CognitoUserPoolMyUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: doing-great-user-pool-${opt:stage, self:provider.stage}
+        UsernameAttributes:
+          - phone_number
+        AutoVerifiedAttributes:
+          - phone_number
+        SmsConfiguration:
+          ExternalId: "sms-external-id-doing-great"
+          SnsCallerArn: !GetAtt CognitoSMSRole.Arn
+    serviceUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: ${self:service}-${self:custom.stage}-user-pool-client
+        UserPoolId:
+          Ref: CognitoUserPoolMyUserPool
+        GenerateSecret: false
+    usersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: doing-great-users
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: sub
+            AttributeType: S
+        KeySchema:
+          - AttributeName: sub
+            KeyType: HASH
