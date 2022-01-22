@@ -52,6 +52,17 @@ functions:
             type: COGNITO_USER_POOLS
             authorizerId:
               Ref: ApiGatewayAuthorizer
+  text-me:
+    handler: endpoints/http-text-me.handler
+    events:
+      - http:
+          path: /text
+          method: PUT
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
 resources:
   Resources:
     ApiGatewayAuthorizer:

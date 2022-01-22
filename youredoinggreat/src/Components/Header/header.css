@@ -1,0 +1,20 @@
+.tab {
+  background-color: #bbb;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+}
+.tab:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.tabLabel {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+.selected {
+  text-decoration: underline;
+}
