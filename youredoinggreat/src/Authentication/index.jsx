@@ -48,7 +48,7 @@ export default function Authentication({ ...props }) {
         <div style={{width:"100%"}}>
            <div style={{margin:"0 auto",display:"flex",paddingTop:"200px",width:"fit-content"}}>
       <div className="appTitleLogin">you're doing great</div>
-      <img className="logo" src={logo}></img>
+      <img className="logoLogin" src={logo}></img>
       </div>
       <Routes>
      

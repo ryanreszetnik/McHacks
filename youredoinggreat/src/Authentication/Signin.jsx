@@ -20,7 +20,6 @@ export default function Signin() {
     try {
       console.log(await Auth.signIn(phone, password));
       const usersession = await Auth.currentSession();
-      // const user = await Auth.currentUserInfo();
       console.log(usersession);
       dispatch({ type: SET_USER, payload: usersession });
     } catch (e) {
@@ -47,10 +46,20 @@ export default function Signin() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <CustomButton onClick={()=>submit()} label="Sign In"/>
-      <div>
-        Dont have an account?{" "}
+      <div
+      style={{fontSize: "12px"}}
+      >
+      <Link
+          style={{ cursor: "pointer", paddingRight: "55px", fontSize: "12px"}}
+          onClick={() => {
+            navigate("/forgotPassword");
+          }}
+        >
+          Forgot password? 
+        </Link>
+        Don't have an account?{" "}
         <Link
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", fontSize: "12px" }}
           onClick={() => {
             navigate("/signup");
           }}
@@ -58,16 +67,7 @@ export default function Signin() {
           Create Account
         </Link>
       </div>
-      <div>
-        <Link
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            navigate("/forgotPassword");
-          }}
-        >
-          Forgot password?
-        </Link>
-      </div>
+  
       </div>
     </div>
   );
