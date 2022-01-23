@@ -17,6 +17,13 @@ exports.handler = async (event, context, callback) => {
         water: false,
         exercise: false,
         food: false,
+        lastMessageTime: new Date().toISOString(),
+        messagesEnables: false,
+        messageInterval: { minutes: 1, hours: 0 },
+        messageTimeRange: {
+          start: { hour: 9, minute: 0 },
+          end: { hour: 2, minute: 30 },
+        },
       },
       TableName: Tables.USERS,
     };

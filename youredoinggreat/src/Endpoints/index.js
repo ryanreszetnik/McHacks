@@ -70,3 +70,10 @@ export const setExercise = async (check) => {
     body: { check },
   });
 };
+
+export const updateTime = async (newTime) => {
+  return await API.put("GeneralEndpoint", "/time", {
+    headers,
+    body: newTime,
+  });
+};

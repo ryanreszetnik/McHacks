@@ -16,8 +16,12 @@ exports.handler = async (event) => {
   };
   const resp = (await documentClient.get(params).promise()).Item;
   console.log("Got user", resp);
+  const messages = resp.messages
+    ? resp.messages.values
+    : ["please add some messages to your account"];
+  const messageToSend = messages[Math.floor(Math.random() * messages.length)];
   await client.calls.create({
-    twiml: `<Response><Say>Hi ${resp.username} you are doing amazing today don't let anything slow you down!</Say></Response>`,
+    twiml: `<Response><Say>Hi ${resp.username}, ${messageToSend}</Say></Response>`,
     to: resp.phone_number,
     from: "+12264076113",
   });
