@@ -19,6 +19,7 @@ import {
   SET_FOOD,
 } from "../Constants/reducerEvents";
 import { setCall } from "../Endpoints";
+import plant from "../../src/images/plant.png";
 
 export default function Preferences() {
   const call = useSelector((state) => state.preferences.call);
@@ -51,21 +52,23 @@ export default function Preferences() {
     dispatch({ type: SET_WATER, payload: !water });
   };
   return (
-    <div className="background">
+    <div style={{backgroundColor: "#DEF9F1", display: "flex"}}>
+      <div>
       <div className="title">
-        {" "}
-        What are some phrases that would help motivate you
+        <br></br>
+        What are some phrases that would help motivate you?
       </div>
-      <div className="underline"></div>
       <div className="subtitle">eg. Think about your goals, you got this!</div>
-
+      <div style={{paddingLeft: "139px", paddingTop: "10px", paddingBottom: "30px"}}>
       <TextField
         className="messageBox"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         label="Enter a message"
       />
-      <Button onClick={submitMessage}>Submit</Button>
+       <Button class="submitButton" onClick={submitMessage}>Submit</Button>
+       </div>
+     
       <div className="currentText">Your current messages</div>
 
       {messages.map((m) => {
@@ -74,7 +77,7 @@ export default function Preferences() {
             <div className="messageText" style={{ margin: "auto 0" }}>
               {m}
             </div>
-            <IconButton onClick={() => deleteAMessage(m)}>
+            <IconButton size="small" onClick={() => deleteAMessage(m)}>
               <HighlightOffIcon />
             </IconButton>
           </div>
@@ -83,7 +86,7 @@ export default function Preferences() {
       <div className="title">
         What specific tasks would you like reminders about?
       </div>
-      <div className="underline"></div>
+      <div  className="checkboxes">
       <FormGroup>
         <div style={{ display: "flex" }}>
           <FormControlLabel
@@ -104,8 +107,9 @@ export default function Preferences() {
           />
         </div>
       </FormGroup>
-      <div className="title">How would you prefer </div>
-      <div className="underline"></div>
+      </div>
+      <div className="title">How would you prefer to receive your reminders?</div>
+      <div  className="checkboxes">
       <FormGroup>
         <div style={{ display: "flex" }}>
           <FormControlLabel
@@ -122,6 +126,11 @@ export default function Preferences() {
           />
         </div>
       </FormGroup>
+      </div>
+      </div>
+      <div>
+      <img className="plant" src={plant}></img>
+      </div>
     </div>
   );
 }

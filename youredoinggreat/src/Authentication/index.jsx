@@ -15,6 +15,8 @@ import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 import Signin from "./Signin";
 import Signup from "./Signup";
+import "./signin.css"
+import logo from "../../src/images/output-onlinepngtools.png"
 
 export default function Authentication({ ...props }) {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -43,14 +45,22 @@ export default function Authentication({ ...props }) {
 
   const authPages = () => {
     return (
+        <div style={{width:"100%"}}>
+           <div style={{margin:"0 auto",display:"flex",paddingTop:"200px",width:"fit-content"}}>
+      <div className="appTitleLogin">you're doing great</div>
+      <img className="logo" src={logo}></img>
+      </div>
       <Routes>
+     
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/confirmSignUp" element={<ConfirmPhone />} />
         <Route path="resetPassword" element={<ResetPassword />} />
         <Route path="/*" element={<Navigate to="/signin" />} />
+       
       </Routes>
+      </div>
     );
   };
 

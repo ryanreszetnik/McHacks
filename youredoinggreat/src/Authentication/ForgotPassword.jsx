@@ -19,7 +19,7 @@ export default function ForgotPassword() {
     }
   };
   return (
-    <div>
+    <div style={{margin:"0 auto", width:"500px",paddingTop:"20px"}}>
       <TextField value={phone} onChange={(e) => setPhone(e.target.value)} />
       <Button onClick={() => submit()}>Submit Number</Button>
       <div>

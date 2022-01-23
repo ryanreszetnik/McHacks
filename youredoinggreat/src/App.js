@@ -8,7 +8,12 @@ import Signin from "./Authentication/Signin";
 import { Button } from "@mui/material";
 import { appLoad, callMe, textMe } from "./Endpoints";
 import { useDispatch } from "react-redux";
-import { SET_ALL, SET_MESSAGES, SET_USER } from "./Constants/reducerEvents";
+import {
+  SET_ALL,
+  SET_MESSAGES,
+  SET_TIME,
+  SET_USER,
+} from "./Constants/reducerEvents";
 import { Fragment, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -31,6 +36,7 @@ function App() {
         call: data.call,
       },
     });
+    dispatch({ type: SET_TIME, payload: data.timeRange });
     const messages = data.messages ? data.messages : [];
     dispatch({ type: SET_MESSAGES, payload: messages });
   };
