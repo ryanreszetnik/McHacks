@@ -1,0 +1,72 @@
+.title{
+
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: -3%;
+
+font-family: Rounded Mplus 1c Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 26px;
+letter-spacing: -0.07em;
+
+color: #000000;
+
+}
+
+.background{
+    background: #DEF9F1;
+}
+.subtitle{
+    font-family: Rounded Mplus 1c Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 27px;
+letter-spacing: -0.07em;
+
+color: #000000;
+}
+
+.messageBox{
+    width: 540px;
+height: 51px;
+padding-left: 115px;
+
+background: #FFFFFF;
+border: 1.5px solid #182C39;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.currentText{
+    font-family: Rounded Mplus 1c Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 36px;
+
+letter-spacing: -0.07em;
+
+color: #000000;
+}
+
+.messageText{
+    font-family: Rounded Mplus 1c Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 21px;
+letter-spacing: -0.07em;
+
+color: #000000;
+}
+.underline{
+width: 817px;
+height: 7px;
+left: 86px;
+top: 684px;
+border: solid #EA638C;
+background: #EA638C;
+}

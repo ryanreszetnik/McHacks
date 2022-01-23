@@ -30,6 +30,7 @@ export default function ResetPassword() {
       />
       <TextField
         label="New Password"
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

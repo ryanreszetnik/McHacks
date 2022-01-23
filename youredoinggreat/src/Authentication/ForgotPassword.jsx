@@ -23,7 +23,6 @@ export default function ForgotPassword() {
       <TextField value={phone} onChange={(e) => setPhone(e.target.value)} />
       <Button onClick={() => submit()}>Submit Number</Button>
       <div>
-        Maybe you should remember it remember it{" "}
         <Link
           style={{ cursor: "pointer" }}
           onClick={() => {
