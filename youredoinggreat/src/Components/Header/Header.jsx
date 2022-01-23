@@ -48,7 +48,7 @@ export default function Header() {
           />
         ))}
       </div>
-      <div style={{ paddingTop: "30px" }}>
+      <div style={{ paddingTop: "15px" }}>
         <CustomButton onClick={signOut} label="Sign Out" />
       </div>
     </div>

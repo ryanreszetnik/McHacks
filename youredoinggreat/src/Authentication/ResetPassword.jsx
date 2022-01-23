@@ -2,6 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { Auth } from "aws-amplify";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import CustomButton from "../Components/CustomButton";
 
 export default function ResetPassword() {
   const location = useLocation();
@@ -21,8 +22,8 @@ export default function ResetPassword() {
     console.log(await Auth.forgotPassword(phone));
   };
   return (
-    <div>
-      <div>Enter code sent to {phone}</div>
+    <div style={{margin:"0 auto", width:"400px"}}>
+      <div style={{paddingBottom:"10px", fontSize:"14px", paddingTop:"-10px"}} >Enter the code sent to {phone}</div>
       <TextField
         label="code"
         value={code}
@@ -34,8 +35,10 @@ export default function ResetPassword() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button onClick={() => submit()}>Change Password</Button>
-      <Button onClick={() => resend()}>Resend Link</Button>
+      <div style={{paddingLeft:"55px"}}>
+      <CustomButton  onClick={() => submit()} label="Change Password"/>
+      <CustomButton onClick={() => resend()} label="Resend Link"/>
+      </div>
     </div>
   );
 }

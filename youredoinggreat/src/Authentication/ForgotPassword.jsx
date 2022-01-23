@@ -5,6 +5,8 @@ import { Auth } from "aws-amplify";
 import { useDispatch } from "react-redux";
 import { SET_USER } from "../Constants/reducerEvents";
 import { useNavigate } from "react-router-dom";
+import CustomButton from "../Components/CustomButton";
+
 export default function ForgotPassword() {
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
@@ -19,12 +21,13 @@ export default function ForgotPassword() {
     }
   };
   return (
-    <div style={{margin:"0 auto", width:"500px",paddingTop:"20px"}}>
-      <TextField value={phone} onChange={(e) => setPhone(e.target.value)} />
-      <Button onClick={() => submit()}>Submit Number</Button>
+    <div style={{margin:"0 auto", width:"500px", paddingLeft: "200px"}}>
+      <TextField variant="filled" label="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} />
+      <CustomButton onClick={() => submit()} label="Submit Number"/>
+      
       <div>
         <Link
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", fontSize: "12px", }}
           onClick={() => {
             navigate("/signin");
           }}

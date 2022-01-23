@@ -49,6 +49,17 @@
   margin-top: 23px;
 }
 
+.authenticationButton {
+  background-color: #96cc63;
+  border-radius: 8px;
+  border-color: #96cc63;
+  color: #def9f1;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 .signOutButton {
   background-color: #96cc63;
   border-radius: 8px;
