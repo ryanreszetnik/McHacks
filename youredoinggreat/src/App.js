@@ -8,7 +8,7 @@ import Signin from "./Authentication/Signin";
 import { Button } from "@mui/material";
 import { appLoad, callMe, textMe } from "./Endpoints";
 import { useDispatch } from "react-redux";
-import { SET_USER } from "./Constants/reducerEvents";
+import { SET_MESSAGES, SET_USER } from "./Constants/reducerEvents";
 import { Fragment, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -18,6 +18,16 @@ import Preferences from "./Pages/Preferences";
 Amplify.configure(awsConfig);
 
 function App() {
+  const dispatch = useDispatch();
+  const load = async () => {
+    const data = await appLoad();
+    console.log(data);
+    const messages = data.messages ? data.messages : [];
+    dispatch({ type: SET_MESSAGES, payload: messages });
+  };
+  useEffect(() => {
+    load();
+  }, []);
   return (
     <Fragment>
       <Header />

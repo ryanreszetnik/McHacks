@@ -24,8 +24,14 @@ export default function Signin() {
   };
   return (
     <div>
-      <TextField value={phone} onChange={(e) => setPhone(e.target.value)} />
       <TextField
+        label="Phone Number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
+      <TextField
+        label="Password"
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

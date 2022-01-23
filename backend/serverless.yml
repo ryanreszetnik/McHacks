@@ -63,6 +63,29 @@ functions:
             type: COGNITO_USER_POOLS
             authorizerId:
               Ref: ApiGatewayAuthorizer
+
+  add-message:
+    handler: endpoints/http-add-message.handler
+    events:
+      - http:
+          path: /messages
+          method: PUT
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
+  remove-message:
+    handler: endpoints/http-remove-message.handler
+    events:
+      - http:
+          path: /messages
+          method: DELETE
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
 resources:
   Resources:
     ApiGatewayAuthorizer:
