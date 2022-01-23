@@ -13,15 +13,11 @@ exports.handler = async (event) => {
     TableName: Tables.USERS,
   };
   const resp = (await documentClient.get(params).promise()).Item;
-<<<<<<< HEAD
-
-=======
   console.log("I should be texting you but i am not :(", resp);
   const messages = resp.messages
     ? resp.messages.values
     : ["please add some messages to your account"];
   const messageToSend = messages[Math.floor(Math.random() * messages.length)];
->>>>>>> 1c609c304e31fc29af74fceb2724049089a6230f
   await client.messages
     .create({
       body: `Hi ${resp.username}, ${messageToSend}`,
