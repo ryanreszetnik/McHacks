@@ -13,7 +13,7 @@ const resources = [
   },
   {
     name: "TRACOM Centre for Crisis Intervention",
-    phone: "tel:514-483-3033",
+    phone: "514-483-3033",
     hours: "24/7",
   },
   {

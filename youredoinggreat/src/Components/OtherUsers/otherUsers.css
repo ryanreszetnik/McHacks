@@ -14,3 +14,16 @@
   font-size: 20px;
   text-align: center;
 }
+
+.title{
+  margin-left: 86px;
+  padding-top: 30px;
+  max-width: 550px;
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 18px;
+  letter-spacing: -0.07em;
+  border-bottom: 10px solid #EA638C;
+  }

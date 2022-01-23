@@ -15,12 +15,15 @@ import { useDispatch, useSelector } from "react-redux";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { SET_TIME, UPDATE_TIME } from "../Constants/reducerEvents";
 import OtherUsers from "../Components/OtherUsers";
+import "./home.css";
+import CustomButton from "../Components/CustomButton";
 
 export default function Home() {
   const enableMessages = useSelector((state) => state.time.enabled);
   const time = useSelector((state) => state.time.delay);
   const timeOfDay = useSelector((state) => state.time);
-
+  const messages = useSelector((state) => state.messages);
+const [messageToShow,setMessageToShow] = useState(null)
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [hours, setHours] = useState(0);
@@ -61,10 +64,24 @@ export default function Home() {
     };
     dispatch({ type: UPDATE_TIME, payload: timeRange });
   };
+  const refreshQuote = ()=>{
+    if(messages.length>0){
+      setMessageToShow(messages[Math.floor(Math.random()*messages.length)])
+    }else{
+      setMessageToShow(null)
+    }
+  }
+  useEffect(()=>{
+    refreshQuote()
+  },[messages])
   return (
-    <div style={{ paddingTop: "10px" }}>
+    <div>
+    {messageToShow&&<div className="random-quote" onClick={()=>refreshQuote()}>"{messageToShow}"</div>}
+    <div style={{ paddingTop: "10px", display: "flex" }}>
+      <div>
+      <div className="title">Message Intervals</div>
       <FormGroup>
-        <FormControlLabel
+        <FormControlLabel className="subtitle"
           control={
             <Switch
               color="secondary"
@@ -77,9 +94,9 @@ export default function Home() {
       </FormGroup>
 
       {enableMessages && (
-        <div style={{ paddingTop: "7px" }}>
-          <div>
-            <div style={{ paddingBottom: "7px" }}>
+        <div style={{ paddingTop: "7px"}}>
+          
+            <div className="subtitle" style={{paddingBottom: "7px" }}>
               {`Send me notifications every: ${time.hours} hrs ${time.minutes} min between `}
               {moment()
                 .set("hour", timeOfDay.start.hours)
@@ -91,7 +108,9 @@ export default function Home() {
                 .set("minute", timeOfDay.end.minutes)
                 .format("h:mm a")}
             </div>
+            <div style={{paddingLeft: "140px" }}>
             <TextField
+              variant="filled"
               label="Hours"
               type="number"
               value={hours}
@@ -100,6 +119,7 @@ export default function Home() {
             ></TextField>
             <TextField
               label="Minutes"
+              variant="filled"
               type="number"
               value={minutes}
               error={
@@ -110,11 +130,13 @@ export default function Home() {
               }
               onChange={(e) => setMinutes(e.target.value)}
             ></TextField>
-          </div>
+            
+          
           <div style={{ paddingTop: "10px" }}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <TimePicker
                 label="Start Time"
+                variant="filled"
                 value={startTime}
                 onChange={(newValue) => {
                   setStartTime(newValue);
@@ -123,6 +145,7 @@ export default function Home() {
               />
               <TimePicker
                 label="End Time"
+                variant="filled"
                 value={endTime}
                 onChange={(newValue) => {
                   setEndTime(newValue);
@@ -130,15 +153,18 @@ export default function Home() {
                 renderInput={(params) => <TextField {...params} />}
               />
             </LocalizationProvider>
-            <Button variant="contained" onClick={() => submitTime()}>
-              Update Time Range
-            </Button>
+            <div>
+            <CustomButton variant="contained" onClick={() => submitTime()} label="Update Time Range"/>
+            </div>
+            </div>
           </div>
         </div>
       )}
-      <Button onClick={text}>Text Me</Button>
-      <Button onClick={call}>Call Me</Button>
+      </div>
+      <div>
       <OtherUsers />
+      </div>
+    </div>
     </div>
   );
 }

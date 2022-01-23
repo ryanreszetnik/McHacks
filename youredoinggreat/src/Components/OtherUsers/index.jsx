@@ -33,12 +33,13 @@ export default function OtherUsers() {
   };
 
   return (
-    <div className="users-container">
-      <div className="users-title">Send A Message To Someone</div>
-      <Box sx={{ minWidth: "50px" }}>
+    <div className="">
+      <div className="title">Send A Message To A Friend</div>
+      <Box sx={{ minWidth: "50px", paddingLeft: "130px", paddingTop: "10px"}}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Select Member</InputLabel>
           <Select
+            variant="filled"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={member}
@@ -51,6 +52,7 @@ export default function OtherUsers() {
           </Select>
         </FormControl>
         <TextField
+          variant="filled"
           label="Message To Send"
           fullWidth
           multiline
