@@ -1,0 +1,29 @@
+.appTitleLogin{
+    height: 107px;
+    padding-left: 32px;
+    
+    
+    font-family: "Rounded Mplus" 1c Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 82px;
+    letter-spacing: -0.05em;
+    color: #96CC63;
+    }
+    
+.logo{
+      width: 70.44px;
+      height: 70.44px;
+      padding-left: 10px;
+      margin-top: 23px;
+    }
+.overall{
+    align-items: center;
+    vertical-align: middle;
+    align-content: center;
+}
+
+body{
+    background-color: #DEF9F1;
+}

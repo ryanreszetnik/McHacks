@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import { Button, Link } from "@mui/material";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
+import CustomButton from "../Components/CustomButton";
 export default function Signup() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -23,25 +24,28 @@ export default function Signup() {
     }
   };
   return (
-    <div>
+    <div style={{margin:"0 auto", width:"500px",paddingTop:"20px"}}>
       <TextField
+      variant="filled"
         label="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <TextField
+           variant="filled"
         label="Phone Number"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
       />
 
       <TextField
+           variant="filled"
         label="Password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button onClick={() => submit()}>Create Account</Button>
+      <CustomButton onClick={()=>submit()} label="Create Account"/>
       <div>
         Already have an account?{" "}
         <Link
