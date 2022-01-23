@@ -224,7 +224,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z/doing-great-backend.zip"
+                "S3Key": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z/doing-great-backend.zip"
               },
               "Handler": "endpoints/http-register-account.handler",
               "Runtime": "nodejs12.x",
@@ -254,7 +254,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z/doing-great-backend.zip"
+                "S3Key": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z/doing-great-backend.zip"
               },
               "Handler": "endpoints/http-app-load.handler",
               "Runtime": "nodejs12.x",
@@ -284,7 +284,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z/doing-great-backend.zip"
+                "S3Key": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z/doing-great-backend.zip"
               },
               "Handler": "endpoints/http-call-me.handler",
               "Runtime": "nodejs12.x",
@@ -314,7 +314,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z/doing-great-backend.zip"
+                "S3Key": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z/doing-great-backend.zip"
               },
               "Handler": "endpoints/http-text-me.handler",
               "Runtime": "nodejs12.x",
@@ -344,7 +344,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z/doing-great-backend.zip"
+                "S3Key": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z/doing-great-backend.zip"
               },
               "Handler": "endpoints/http-add-message.handler",
               "Runtime": "nodejs12.x",
@@ -374,7 +374,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z/doing-great-backend.zip"
+                "S3Key": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z/doing-great-backend.zip"
               },
               "Handler": "endpoints/http-remove-message.handler",
               "Runtime": "nodejs12.x",
@@ -397,64 +397,64 @@
               "RemoveDashmessageLogGroup"
             ]
           },
-          "RegisterDashaccountLambdaVersionLowAUhE7OzVSXcttUOx9TrT6ymLaXVWw7dhBhPfDqE": {
+          "RegisterDashaccountLambdaVersionbMtJzjlrPtd4QjlkHlvtP8eIamlyAncgfjPlUjaA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RegisterDashaccountLambdaFunction"
               },
-              "CodeSha256": "6hmNdC+dXC152XO7Z6pw66VaU/IBj77bPW82FRqJtfs="
+              "CodeSha256": "z16sirdYdRLou0xsHxDnUa7MQCR4/BemlJD2/bI0jhs="
             }
           },
-          "AppDashloadLambdaVersionhaok0udwnPYWyb3FPTUG1Qvy8NAZA1s6MaBZuQu8FF4": {
+          "AppDashloadLambdaVersionMkE1liwGG9Fw8TCC2WxsnetqTLiHWhvagw5VzRHDkjo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppDashloadLambdaFunction"
               },
-              "CodeSha256": "6hmNdC+dXC152XO7Z6pw66VaU/IBj77bPW82FRqJtfs="
+              "CodeSha256": "z16sirdYdRLou0xsHxDnUa7MQCR4/BemlJD2/bI0jhs="
             }
           },
-          "CallDashmeLambdaVersionZuldBvHU7B3E7a4Q5eO08SumIDVT4xJg1Pw5rcY5rLk": {
+          "CallDashmeLambdaVersionNg5EViWDr102WR9RGYZ1qYEwMoGru98SPuUWzurRQ5M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CallDashmeLambdaFunction"
               },
-              "CodeSha256": "6hmNdC+dXC152XO7Z6pw66VaU/IBj77bPW82FRqJtfs="
+              "CodeSha256": "z16sirdYdRLou0xsHxDnUa7MQCR4/BemlJD2/bI0jhs="
             }
           },
-          "TextDashmeLambdaVersionvOU9F9GrKSm1j0bZYHBsyWuYnblzzFqkN6XmkQLBes": {
+          "TextDashmeLambdaVersiong5mkDXCxkjCksfpUTE0b8BImPi3tMt4rmWgutDtts": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TextDashmeLambdaFunction"
               },
-              "CodeSha256": "6hmNdC+dXC152XO7Z6pw66VaU/IBj77bPW82FRqJtfs="
+              "CodeSha256": "z16sirdYdRLou0xsHxDnUa7MQCR4/BemlJD2/bI0jhs="
             }
           },
-          "AddDashmessageLambdaVersionAQO5SN9QV2ls02IaU4kOksGnQjyAG4xTQTcjovNk": {
+          "AddDashmessageLambdaVersionlCtBqaYodftus2DKR3IXUEQ4MQJJTmS4YvtwiItFLs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddDashmessageLambdaFunction"
               },
-              "CodeSha256": "6hmNdC+dXC152XO7Z6pw66VaU/IBj77bPW82FRqJtfs="
+              "CodeSha256": "z16sirdYdRLou0xsHxDnUa7MQCR4/BemlJD2/bI0jhs="
             }
           },
-          "RemoveDashmessageLambdaVersion12LxrMzCgcuZsFyV22w0JWefPAre1goGKDV26gFWuw": {
+          "RemoveDashmessageLambdaVersionmsyo11LdD0TDAra6Msj4FQVRCUrSBIoAm8AK5Dn8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RemoveDashmessageLambdaFunction"
               },
-              "CodeSha256": "6hmNdC+dXC152XO7Z6pw66VaU/IBj77bPW82FRqJtfs="
+              "CodeSha256": "z16sirdYdRLou0xsHxDnUa7MQCR4/BemlJD2/bI0jhs="
             }
           },
           "ApiGatewayRestApi": {
@@ -945,7 +945,7 @@
               "RemoveDashmessageLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1642896726234": {
+          "ApiGatewayDeployment1642898785440": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1314,7 +1314,7 @@
           "RegisterDashaccountLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RegisterDashaccountLambdaVersionLowAUhE7OzVSXcttUOx9TrT6ymLaXVWw7dhBhPfDqE"
+              "Ref": "RegisterDashaccountLambdaVersionbMtJzjlrPtd4QjlkHlvtP8eIamlyAncgfjPlUjaA"
             },
             "Export": {
               "Name": "sls-doing-great-backend-dev-RegisterDashaccountLambdaFunctionQualifiedArn"
@@ -1323,7 +1323,7 @@
           "AppDashloadLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppDashloadLambdaVersionhaok0udwnPYWyb3FPTUG1Qvy8NAZA1s6MaBZuQu8FF4"
+              "Ref": "AppDashloadLambdaVersionMkE1liwGG9Fw8TCC2WxsnetqTLiHWhvagw5VzRHDkjo"
             },
             "Export": {
               "Name": "sls-doing-great-backend-dev-AppDashloadLambdaFunctionQualifiedArn"
@@ -1332,7 +1332,7 @@
           "CallDashmeLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CallDashmeLambdaVersionZuldBvHU7B3E7a4Q5eO08SumIDVT4xJg1Pw5rcY5rLk"
+              "Ref": "CallDashmeLambdaVersionNg5EViWDr102WR9RGYZ1qYEwMoGru98SPuUWzurRQ5M"
             },
             "Export": {
               "Name": "sls-doing-great-backend-dev-CallDashmeLambdaFunctionQualifiedArn"
@@ -1341,7 +1341,7 @@
           "TextDashmeLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TextDashmeLambdaVersionvOU9F9GrKSm1j0bZYHBsyWuYnblzzFqkN6XmkQLBes"
+              "Ref": "TextDashmeLambdaVersiong5mkDXCxkjCksfpUTE0b8BImPi3tMt4rmWgutDtts"
             },
             "Export": {
               "Name": "sls-doing-great-backend-dev-TextDashmeLambdaFunctionQualifiedArn"
@@ -1350,7 +1350,7 @@
           "AddDashmessageLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddDashmessageLambdaVersionAQO5SN9QV2ls02IaU4kOksGnQjyAG4xTQTcjovNk"
+              "Ref": "AddDashmessageLambdaVersionlCtBqaYodftus2DKR3IXUEQ4MQJJTmS4YvtwiItFLs"
             },
             "Export": {
               "Name": "sls-doing-great-backend-dev-AddDashmessageLambdaFunctionQualifiedArn"
@@ -1359,7 +1359,7 @@
           "RemoveDashmessageLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RemoveDashmessageLambdaVersion12LxrMzCgcuZsFyV22w0JWefPAre1goGKDV26gFWuw"
+              "Ref": "RemoveDashmessageLambdaVersionmsyo11LdD0TDAra6Msj4FQVRCUrSBIoAm8AK5Dn8"
             },
             "Export": {
               "Name": "sls-doing-great-backend-dev-RemoveDashmessageLambdaFunctionQualifiedArn"
@@ -1498,7 +1498,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "RegisterDashaccountLambdaVersionLowAUhE7OzVSXcttUOx9TrT6ymLaXVWw7dhBhPfDqE"
+        "versionLogicalId": "RegisterDashaccountLambdaVersionbMtJzjlrPtd4QjlkHlvtP8eIamlyAncgfjPlUjaA"
       },
       "app-load": {
         "handler": "endpoints/http-app-load.handler",
@@ -1543,7 +1543,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppDashloadLambdaVersionhaok0udwnPYWyb3FPTUG1Qvy8NAZA1s6MaBZuQu8FF4"
+        "versionLogicalId": "AppDashloadLambdaVersionMkE1liwGG9Fw8TCC2WxsnetqTLiHWhvagw5VzRHDkjo"
       },
       "call-me": {
         "handler": "endpoints/http-call-me.handler",
@@ -1588,7 +1588,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "CallDashmeLambdaVersionZuldBvHU7B3E7a4Q5eO08SumIDVT4xJg1Pw5rcY5rLk"
+        "versionLogicalId": "CallDashmeLambdaVersionNg5EViWDr102WR9RGYZ1qYEwMoGru98SPuUWzurRQ5M"
       },
       "text-me": {
         "handler": "endpoints/http-text-me.handler",
@@ -1633,7 +1633,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "TextDashmeLambdaVersionvOU9F9GrKSm1j0bZYHBsyWuYnblzzFqkN6XmkQLBes"
+        "versionLogicalId": "TextDashmeLambdaVersiong5mkDXCxkjCksfpUTE0b8BImPi3tMt4rmWgutDtts"
       },
       "add-message": {
         "handler": "endpoints/http-add-message.handler",
@@ -1678,7 +1678,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AddDashmessageLambdaVersionAQO5SN9QV2ls02IaU4kOksGnQjyAG4xTQTcjovNk"
+        "versionLogicalId": "AddDashmessageLambdaVersionlCtBqaYodftus2DKR3IXUEQ4MQJJTmS4YvtwiItFLs"
       },
       "remove-message": {
         "handler": "endpoints/http-remove-message.handler",
@@ -1723,7 +1723,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "RemoveDashmessageLambdaVersion12LxrMzCgcuZsFyV22w0JWefPAre1goGKDV26gFWuw"
+        "versionLogicalId": "RemoveDashmessageLambdaVersionmsyo11LdD0TDAra6Msj4FQVRCUrSBIoAm8AK5Dn8"
       }
     },
     "resources": {
@@ -1877,7 +1877,7 @@
     "artifact": "/Users/rreszetnik/Desktop/McHacks/backend/.serverless/doing-great-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/doing-great-backend/dev/1642896729345-2022-01-23T00:12:09.345Z",
+    "artifactDirectoryName": "serverless/doing-great-backend/dev/1642898788736-2022-01-23T00:46:28.736Z",
     "artifact": "doing-great-backend.zip"
   }
 }
