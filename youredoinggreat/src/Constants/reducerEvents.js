@@ -11,3 +11,4 @@ export const SET_ALL = "SET_ALL";
 
 export const SET_TIME = "SET_TIME";
 export const UPDATE_TIME = "UPDATE_TIME";
+export const SET_OTHER_USERS = "SET_OTHER_USERS";

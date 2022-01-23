@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   SET_ALL,
   SET_MESSAGES,
+  SET_OTHER_USERS,
   SET_TIME,
   SET_USER,
 } from "./Constants/reducerEvents";
@@ -40,6 +41,7 @@ function App() {
     dispatch({ type: SET_TIME, payload: data.timeRange });
     const messages = data.messages ? data.messages : [];
     dispatch({ type: SET_MESSAGES, payload: messages });
+    dispatch({ type: SET_OTHER_USERS, payload: data.otherUsers });
   };
   useEffect(() => {
     load();

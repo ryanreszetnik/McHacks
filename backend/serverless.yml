@@ -147,7 +147,17 @@ functions:
       - http:
           path: /sendall
           method: PUT
-
+  send-friend-message:
+    handler: endpoints/http-send-friend-message.handler
+    events:
+      - http:
+          path: /sendFriendMessage
+          method: PUT
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
 resources:
   Resources:
     ApiGatewayAuthorizer:

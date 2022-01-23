@@ -14,6 +14,7 @@ import "./home.css";
 import { useDispatch, useSelector } from "react-redux";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { SET_TIME, UPDATE_TIME } from "../Constants/reducerEvents";
+import OtherUsers from "../Components/OtherUsers";
 
 export default function Home() {
   const enableMessages = useSelector((state) => state.time.enabled);
@@ -137,6 +138,7 @@ export default function Home() {
       )}
       <Button onClick={text}>Text Me</Button>
       <Button onClick={call}>Call Me</Button>
+      <OtherUsers />
     </div>
   );
 }

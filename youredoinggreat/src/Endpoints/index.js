@@ -77,3 +77,9 @@ export const updateTime = async (newTime) => {
     body: newTime,
   });
 };
+export const sendMessageToFriend = async (sub, message) => {
+  return await API.put("GeneralEndpoint", "/sendFriendMessage", {
+    headers,
+    body: { sub, message },
+  });
+};
