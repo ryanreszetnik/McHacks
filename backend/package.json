@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deployCall": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-call-me --zip-file fileb://deploy.zip",
-    "deployText": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-text-me --zip-file fileb://deploy.zip"
+    "deployText": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-text-me --zip-file fileb://deploy.zip",
+    "deployRunner": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-constant-run --zip-file fileb://deploy.zip"
   },
   "author": "",
   "license": "ISC",
