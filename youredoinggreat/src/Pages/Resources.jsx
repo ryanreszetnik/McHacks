@@ -1,5 +1,6 @@
 import React from "react";
 import "./resources.css";
+import hand from "../../src/images/hand.png";
 
 const resources = [
   { name: "Suicide Action Montreal", phone: "1-866-277-3553", hours: "24/7" },
@@ -62,6 +63,9 @@ export default function Resources() {
           );
         })}
         <div className="bottom-line" />
+      </div>
+      <div>
+      <img className="hand" src={hand}></img>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { Auth } from "aws-amplify";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import CustomButton from "../Components/CustomButton";
 
 export default function ConfirmPhone() {
   const location = useLocation();
@@ -20,11 +21,15 @@ export default function ConfirmPhone() {
     console.log(await Auth.resendSignUp(phone));
   };
   return (
-    <div>
-      <div>Enter code sent to {phone}</div>
-      <TextField value={code} onChange={(e) => setCode(e.target.value)} />
-      <Button onClick={() => submit()}>Confirm Phone</Button>
-      <Button onClick={() => resend()}>Resend Link</Button>
+    <div  style={{margin:"0 auto", width:"500px", paddingLeft: "200px"}}>
+      <div style={{fontSize: "15px", paddingBottom: "10px"}}>Enter the code sent to {phone}</div>
+      <div style={{paddingLeft: "40px"}}>
+      <TextField variant="filled" label="phone number" value={code} onChange={(e) => setCode(e.target.value)} />
+      </div>
+      <div style={{paddingLeft:"40px"}}>
+      <CustomButton  onClick={() => submit()} label="Submit"/>
+      <CustomButton onClick={() => resend()} label="Resend Link"/>
+      </div>
     </div>
   );
 }

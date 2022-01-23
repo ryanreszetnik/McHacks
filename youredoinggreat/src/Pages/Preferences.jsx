@@ -152,7 +152,7 @@ export default function Preferences() {
                 }
                 label="Text"
               />
-              <div style={{ marginTop: "5px" }}>
+              <div style={{ marginTop: "-8px" }}>
                 <CustomButton label="Test it out" onClick={() => runTest()} />
               </div>
             </div>
