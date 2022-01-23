@@ -45,7 +45,7 @@ functions:
     handler: endpoints/http-call-me.handler
     events:
       - http:
-          path: /call
+          path: /callme
           method: PUT
           cors: true
           authorizer:
@@ -81,6 +81,50 @@ functions:
       - http:
           path: /messages
           method: DELETE
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
+  update-call:
+    handler: endpoints/http-update-call.handler
+    events:
+      - http:
+          path: /call
+          method: PUT
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
+  update-food:
+    handler: endpoints/http-update-food.handler
+    events:
+      - http:
+          path: /food
+          method: PUT
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
+  update-water:
+    handler: endpoints/http-update-water.handler
+    events:
+      - http:
+          path: /water
+          method: PUT
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
+  update-exercise:
+    handler: endpoints/http-update-exercise.handler
+    events:
+      - http:
+          path: /exercise
+          method: PUT
           cors: true
           authorizer:
             type: COGNITO_USER_POOLS

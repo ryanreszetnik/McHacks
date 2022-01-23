@@ -8,7 +8,7 @@ import Signin from "./Authentication/Signin";
 import { Button } from "@mui/material";
 import { appLoad, callMe, textMe } from "./Endpoints";
 import { useDispatch } from "react-redux";
-import { SET_MESSAGES, SET_USER } from "./Constants/reducerEvents";
+import { SET_ALL, SET_MESSAGES, SET_USER } from "./Constants/reducerEvents";
 import { Fragment, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -22,6 +22,15 @@ function App() {
   const load = async () => {
     const data = await appLoad();
     console.log(data);
+    dispatch({
+      type: SET_ALL,
+      payload: {
+        exercise: data.exercise,
+        food: data.food,
+        water: data.water,
+        call: data.call,
+      },
+    });
     const messages = data.messages ? data.messages : [];
     dispatch({ type: SET_MESSAGES, payload: messages });
   };
