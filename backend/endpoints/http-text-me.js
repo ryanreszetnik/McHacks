@@ -1,12 +1,13 @@
 const AWS = require("aws-sdk");
 const Responses = require("../common/Responses");
 const Tables = require("../common/Tables");
+const Formatting = require("../common/Formatting");
 const Credentials = require("../common/constants");
 const client = require("twilio")(Credentials.accountSid, Credentials.authToken);
 var documentClient = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
-  const sub = event.requestContext.authorizer.claims.sub;
+  const sub = Formatting.getSub(event);
   const params = {
     Key: { sub: sub },
     TableName: Tables.USERS,

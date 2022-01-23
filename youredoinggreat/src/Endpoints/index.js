@@ -37,12 +37,12 @@ export const addMessage = async (message) => {
   console.log("SENDING", message);
   return await API.put("GeneralEndpoint", "/messages", {
     headers,
-    body: message,
+    body: { message },
   });
 };
 export const removeMessage = async (message) => {
   return await API.del("GeneralEndpoint", "/messages", {
     headers,
-    body: message,
+    body: { message },
   });
 };
