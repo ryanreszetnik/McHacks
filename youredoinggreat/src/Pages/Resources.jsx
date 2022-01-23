@@ -62,7 +62,6 @@ export default function Resources() {
             </div>
           );
         })}
-        <div className="bottom-line" />
       </div>
       <div>
       <img className="hand" src={hand}></img>
