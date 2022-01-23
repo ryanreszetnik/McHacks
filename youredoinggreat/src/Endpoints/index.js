@@ -46,3 +46,28 @@ export const removeMessage = async (message) => {
     body: message,
   });
 };
+export const setCall = async (check) => {
+  return await API.put("GeneralEndpoint", "/call", {
+    headers,
+    body: {check},
+  });
+};
+export const setFood = async (check) => {
+  return await API.put("GeneralEndpoint", "/food", {
+    headers,
+    body: {check},
+  });
+};
+export const setWater = async (check) => {
+  return await API.put("GeneralEndpoint", "/water", {
+    headers,
+    body: {check},
+  });
+};
+export const setExercise = async (check) => {
+  return await API.put("GeneralEndpoint", "/exercise", {
+    headers,
+    body: {check},
+  });
+};
+
