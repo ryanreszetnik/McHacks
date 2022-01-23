@@ -13,6 +13,10 @@ exports.handler = async (event, context, callback) => {
         sub: event.request.userAttributes.sub,
         username: event.request.userAttributes.name,
         phone_number: event.request.userAttributes.phone_number,
+        call: true,
+        water: false,
+        exercise: false,
+        food: false,
       },
       TableName: Tables.USERS,
     };

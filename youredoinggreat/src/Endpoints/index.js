@@ -26,7 +26,7 @@ export const appLoad = async () => {
 
 export const callMe = async () => {
   console.log(headers);
-  return await API.put("GeneralEndpoint", "/call", { headers, body: {} });
+  return await API.put("GeneralEndpoint", "/callme", { headers, body: {} });
 };
 
 export const textMe = async () => {
@@ -49,25 +49,24 @@ export const removeMessage = async (message) => {
 export const setCall = async (check) => {
   return await API.put("GeneralEndpoint", "/call", {
     headers,
-    body: {check},
+    body: { check },
   });
 };
 export const setFood = async (check) => {
   return await API.put("GeneralEndpoint", "/food", {
     headers,
-    body: {check},
+    body: { check },
   });
 };
 export const setWater = async (check) => {
   return await API.put("GeneralEndpoint", "/water", {
     headers,
-    body: {check},
+    body: { check },
   });
 };
 export const setExercise = async (check) => {
   return await API.put("GeneralEndpoint", "/exercise", {
     headers,
-    body: {check},
+    body: { check },
   });
 };
-
