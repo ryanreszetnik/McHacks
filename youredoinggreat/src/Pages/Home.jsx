@@ -77,7 +77,7 @@ const [messageToShow,setMessageToShow] = useState(null)
   return (
     <div>
     {messageToShow&&<div className="random-quote" onClick={()=>refreshQuote()}>"{messageToShow}"</div>}
-    <div style={{ paddingTop: "10px", display: "flex" }}>
+    <div style={{ paddingTop: "10px", margin: "0 auto", width: "700px" }}>
       <div>
       <div className="title">Message Intervals</div>
       <FormGroup>
