@@ -6,6 +6,7 @@ import { SET_USER } from "../../Constants/reducerEvents";
 import Tab from "./Tab";
 import "./header.css";
 import { useLocation } from "react-router-dom";
+import logo from "../../images/output-onlinepngtools.png"
 
 const pages = [
   { name: "Home", link: "/" },
@@ -20,23 +21,38 @@ export default function Header() {
     dispatch({ type: SET_USER, payload: null });
   };
   return (
+    
     <div
+    className="headerBox"
       style={{
         width: "100%",
-        backgroundColor: "#333",
-        height: "30px",
+        height: "80px",
         display: "flex",
       }}
     >
-      {pages.map((p) => (
-        <Tab
-          name={p.name}
-          link={p.link}
-          key={p.name}
-          selected={pathname === p.link}
-        />
-      ))}
-      <Button onClick={signOut}>Sign Out</Button>
-    </div>
+
+      <div className="appTitle">you're doing great</div>
+      <img className="logo" src={logo}></img>
+
+
+  <div 
+    style={{
+      paddingLeft: "100px",
+      paddingRight: "80px",
+    }}
+    >
+        {pages.map((p) => (
+          <Tab
+            name={p.name}
+            link={p.link}
+            key={p.name}
+            selected={pathname === p.link}
+          />
+        ))}
+        
+        </div>
+        <button className="signOutButton" onClick={signOut}>Sign Out</button>
+  </div>
+
   );
 }

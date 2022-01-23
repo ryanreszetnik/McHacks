@@ -13,7 +13,6 @@ exports.handler = async (event) => {
     TableName: Tables.USERS,
   };
   const resp = (await documentClient.get(params).promise()).Item;
-  console.log("I should be texting you but i am not :(", resp);
 
   await client.messages
     .create({
