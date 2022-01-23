@@ -3,6 +3,22 @@ const Responses = require("../common/Responses");
 const Tables = require("../common/Tables");
 const Formatting = require("../common/Formatting");
 const Credentials = require("../common/constants");
+const foodReminders = [
+  "Have you eaten today? Maybe it is time for a snack.",
+  "When was the last time you had a meal?",
+  "Our brains can only work at full capacity when they are thouroughly nourished! Snack break?",
+];
+const waterReminders = [
+  "It is always a good time to hydrate!",
+  "Not feeling like regular water? Maybe throw in a slice of lemon as a treat :)",
+  "HYDRATE OR DIE-DRATE!",
+];
+const exerciseReminders = [
+  "Stand up and stretch for a quick 30sec to get the blood flowing!",
+  "Check in with yourself- are you clenching your jaw?",
+  "You are so capable! Why don't you do 10 jumping jacks to keep your system alert!",
+];
+
 const client = require("twilio")(Credentials.accountSid, Credentials.authToken);
 var documentClient = new AWS.DynamoDB.DocumentClient();
 
@@ -13,15 +29,23 @@ exports.handler = async (event) => {
     TableName: Tables.USERS,
   };
   const resp = (await documentClient.get(params).promise()).Item;
-<<<<<<< HEAD
+  let messages = resp.messages ? resp.messages.values : [];
 
-=======
-  console.log("I should be texting you but i am not :(", resp);
-  const messages = resp.messages
-    ? resp.messages.values
-    : ["please add some messages to your account"];
+  console.log(resp.water, resp.food, resp.exercise);
+  if (resp.water) {
+    messages = [...messages, ...waterReminders];
+  }
+  if (resp.food) {
+    messages = [...messages, ...foodReminders];
+  }
+  if (resp.exercise) {
+    messages = [...messages, ...exerciseReminders];
+  }
+  if (messages.length === 0) {
+    messages = ["please add some messages to your account"];
+  }
+  console.log(messages);
   const messageToSend = messages[Math.floor(Math.random() * messages.length)];
->>>>>>> 1c609c304e31fc29af74fceb2724049089a6230f
   await client.messages
     .create({
       body: `Hi ${resp.username}, ${messageToSend}`,

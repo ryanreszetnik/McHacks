@@ -24,7 +24,8 @@ export default function Signup() {
     }
   };
   return (
-    <div style={{margin:"0 auto", width:"500px",paddingTop:"20px"}}>
+    <div style={{margin:"0 auto", width:"500px"}}>
+      <div style={{paddingLeft: "50px"}}>
       <TextField
       variant="filled"
         label="Name"
@@ -37,7 +38,7 @@ export default function Signup() {
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
       />
-
+      <div style={{margin:"0 auto", paddingLeft: "50px", width:"300px"}}>
       <TextField
            variant="filled"
         label="Password"
@@ -45,8 +46,14 @@ export default function Signup() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      
+      <div style={{margin:"0 auto",  paddingLeft: "30px", width:"300px"}}>
+  
       <CustomButton onClick={()=>submit()} label="Create Account"/>
-      <div>
+      </div>
+      </div>
+      
+      <div style={{fontSize: "12px", paddingTop: "12px", paddingLeft: "70px"}}>
         Already have an account?{" "}
         <Link
           style={{ cursor: "pointer" }}
@@ -57,6 +64,7 @@ export default function Signup() {
           Sign in
         </Link>
         {" instead"}
+        </div>
       </div>
     </div>
   );

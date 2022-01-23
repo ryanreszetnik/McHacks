@@ -1,0 +1,55 @@
+.title{
+    margin-left: 86px;
+    padding-top: 30px;
+    max-width: 550px;
+    font-family: Rounded Mplus 1c Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+    letter-spacing: -0.07em;
+    border-bottom: 10px solid #EA638C;
+    }
+    
+    body{
+        background: #DEF9F1;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .submitButton {background-color: #96CC63;
+            border-radius: 8px;
+            border-color: #96CC63;
+        color: #DEF9F1;
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 40px;
+    vertical-align:middle;
+    }
+    
+    
+    .subtitle{
+        font-family: Rounded Mplus 1c Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 12px;
+    letter-spacing: -0.07em;
+    padding-left: 139px;
+    margin-bottom: 10px;
+    color: #000000;
+    }
+
+    .random-quote{
+        
+        text-align: center;
+        padding:30px 50px 30px 50px;
+        font-family: "Rounded Mplus" 1c Bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        letter-spacing: -0.05em;
+        color: #477c6c;
+        cursor: pointer;
+        border-bottom: 10px solid #FDCD49;
+        }

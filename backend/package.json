@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deployCall": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-call-me --zip-file fileb://deploy.zip",
-    "deployText": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-text-me --zip-file fileb://deploy.zip"
+    "deployCall": "zip -r deploy.zip package-lock.json package.json serverless.yml ./node_modules ./common ./endpoints/http-call-me.js && aws lambda update-function-code --function-name doing-great-backend-dev-call-me --zip-file fileb://deploy.zip",
+    "deployText": "zip -r deploy.zip package-lock.json package.json serverless.yml ./node_modules ./common ./endpoints/http-text-me.js && aws lambda update-function-code --function-name doing-great-backend-dev-text-me --zip-file fileb://deploy.zip",
+    "deployRunner": "zip -r deploy.zip ./ && aws lambda update-function-code --function-name doing-great-backend-dev-constant-run --zip-file fileb://deploy.zip"
   },
   "author": "",
   "license": "ISC",

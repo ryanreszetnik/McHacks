@@ -12,16 +12,15 @@
     color: #96CC63;
     }
     
-.logo{
+.logoLogin{
       width: 70.44px;
       height: 70.44px;
       padding-left: 10px;
-      margin-top: 23px;
+      margin-top: 10px;
     }
 .overall{
-    align-items: center;
-    vertical-align: middle;
-    align-content: center;
+    padding-left: 30px;
+
 }
 
 body{

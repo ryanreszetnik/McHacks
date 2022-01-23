@@ -2,7 +2,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  padding: 0 10px;
 }
 .tabLabel:hover {
   cursor: pointer;
@@ -10,53 +10,62 @@
 }
 .tabLabel {
   font-family: Rounded Mplus 1c Bold;
-font-style: normal;
-font-weight: bold;
-font-size: 20px;
-line-height: 45px;
-letter-spacing: -0.05em;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 45px;
+  letter-spacing: -0.05em;
 
-color: #E8C2FF;
+  color: #e8c2ff;
   text-align: center;
 }
 .selected {
   text-decoration: underline;
 }
 
-.headerBox{
-background: #182C39;
+.headerBox {
+  background: #182c39;
 }
 
-.appTitle{
-width: 300px;
-height: 107px;
-padding-left: 32px;
+.appTitle {
+  width: 300px;
+  height: 107px;
+  padding-left: 32px;
 
+  font-family: "Rounded Mplus" 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 82px;
+  letter-spacing: -0.05em;
 
-font-family: "Rounded Mplus" 1c Bold;
-font-style: normal;
-font-weight: bold;
-font-size: 40px;
-line-height: 82px;
-letter-spacing: -0.05em;
-
-color: #96CC63;
+  color: #96cc63;
 }
 
-.logo{
+.logo {
   width: 42.44px;
   height: 42.44px;
   padding-left: 10px;
   margin-top: 23px;
 }
 
-.signOutButton {background-color: #96CC63;
+.authenticationButton {
+  background-color: #96cc63;
   border-radius: 8px;
-  border-color: #96CC63;
-color: #DEF9F1;
-margin-top: 30px;
-margin-left: 10px;
-height: 30px;
-vertical-align:bottom;
-cursor: pointer;
+  border-color: #96cc63;
+  color: #def9f1;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.signOutButton {
+  background-color: #96cc63;
+  border-radius: 8px;
+  border-color: #96cc63;
+  color: #def9f1;
+  height: 30px;
+  vertical-align: bottom;
+  cursor: pointer;
 }

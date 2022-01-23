@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   SET_ALL,
   SET_MESSAGES,
+  SET_OTHER_USERS,
   SET_TIME,
   SET_USER,
 } from "./Constants/reducerEvents";
@@ -19,6 +20,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Header from "./Components/Header/Header";
 import Preferences from "./Pages/Preferences";
+import Resources from "./Pages/Resources";
 
 Amplify.configure(awsConfig);
 
@@ -39,6 +41,7 @@ function App() {
     dispatch({ type: SET_TIME, payload: data.timeRange });
     const messages = data.messages ? data.messages : [];
     dispatch({ type: SET_MESSAGES, payload: messages });
+    dispatch({ type: SET_OTHER_USERS, payload: data.otherUsers });
   };
   useEffect(() => {
     load();
@@ -49,6 +52,7 @@ function App() {
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/preferences" element={<Preferences />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
     </Fragment>
   );
