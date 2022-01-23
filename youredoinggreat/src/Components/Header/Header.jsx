@@ -12,6 +12,7 @@ import CustomButton from "../CustomButton";
 const pages = [
   { name: "Home", link: "/" },
   { name: "Preferences", link: "/preferences" },
+  { name: "Resources", link: "/resources" },
 ];
 
 export default function Header() {

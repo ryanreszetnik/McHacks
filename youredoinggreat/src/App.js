@@ -19,6 +19,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Header from "./Components/Header/Header";
 import Preferences from "./Pages/Preferences";
+import Resources from "./Pages/Resources";
 
 Amplify.configure(awsConfig);
 
@@ -49,6 +50,7 @@ function App() {
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/preferences" element={<Preferences />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
     </Fragment>
   );

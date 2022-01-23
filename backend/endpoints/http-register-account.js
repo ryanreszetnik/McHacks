@@ -17,12 +17,12 @@ exports.handler = async (event, context, callback) => {
         water: false,
         exercise: false,
         food: false,
-        lastMessageTime: new Date().toISOString(),
-        messagesEnables: false,
-        messageInterval: { minutes: 1, hours: 0 },
-        messageTimeRange: {
-          start: { hour: 9, minute: 0 },
-          end: { hour: 2, minute: 30 },
+        lastTime: new Date().toISOString(),
+        timeRange: {
+          delay: { hours: 0, minutes: 1 },
+          start: { hours: 9, minutes: 0 },
+          end: { hours: 20, minutes: 0 },
+          enabled: false,
         },
       },
       TableName: Tables.USERS,

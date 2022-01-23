@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   delay: { hours: 0, minutes: 1 },
   start: { hours: 9, minutes: 0 },
   end: { hours: 20, minutes: 0 },
+  enabled: false,
 };
 
 export default function timeReducer(state = INITIAL_STATE, action) {
