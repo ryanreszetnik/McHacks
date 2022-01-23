@@ -33,9 +33,11 @@ export default function OtherUsers() {
   };
 
   return (
-    <div className="">
-      <div className="title">Send A Message To A Friend</div>
-      <Box sx={{ minWidth: "50px", paddingLeft: "130px", paddingTop: "10px"}}>
+    <div style={{ width: "600px"}}>
+      <div className="title">Send A Supportive Message To A Friend </div>
+      <div style={{ width: "500px"}}>
+      <Box sx={{ minWidth: "200px", paddingLeft: "210px", paddingTop: "10px"}}>
+        
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Select Member</InputLabel>
           <Select
@@ -45,22 +47,27 @@ export default function OtherUsers() {
             value={member}
             label="Age"
             onChange={handleChange}
+            minWidth="300px"
           >
             {otherUsers.map((user) => (
               <MenuItem value={user.sub}>{user.username}</MenuItem>
             ))}
           </Select>
         </FormControl>
-        <TextField
+        
+        <TextField fullWidth
           variant="filled"
           label="Message To Send"
-          fullWidth
+          
           multiline
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
+        <div>
         <CustomButton label="Send" onClick={() => submit()} />
+        </div>
       </Box>
+      </div>
     </div>
   );
 }
