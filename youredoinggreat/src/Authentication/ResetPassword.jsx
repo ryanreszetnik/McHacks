@@ -22,10 +22,14 @@ export default function ResetPassword() {
     console.log(await Auth.forgotPassword(phone));
   };
   return (
-    <div style={{margin:"0 auto", width:"400px"}}>
-      <div style={{paddingBottom:"10px", fontSize:"14px", paddingTop:"-10px"}} >Enter the code sent to {phone}</div>
+    <div style={{ margin: "0 auto", width: "400px" }}>
+      <div
+        style={{ paddingBottom: "10px", fontSize: "14px", paddingTop: "-10px" }}
+      >
+        Enter the code sent to {phone}
+      </div>
       <TextField
-        label="code"
+        label="Code"
         value={code}
         onChange={(e) => setCode(e.target.value)}
       />
@@ -35,9 +39,9 @@ export default function ResetPassword() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <div style={{paddingLeft:"55px"}}>
-      <CustomButton  onClick={() => submit()} label="Change Password"/>
-      <CustomButton onClick={() => resend()} label="Resend Link"/>
+      <div style={{ paddingLeft: "55px" }}>
+        <CustomButton onClick={() => submit()} label="Change Password" />
+        <CustomButton onClick={() => resend()} label="Resend Link" />
       </div>
     </div>
   );

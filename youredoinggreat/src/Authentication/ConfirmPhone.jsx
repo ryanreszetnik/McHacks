@@ -21,14 +21,21 @@ export default function ConfirmPhone() {
     console.log(await Auth.resendSignUp(phone));
   };
   return (
-    <div  style={{margin:"0 auto", width:"500px", paddingLeft: "200px"}}>
-      <div style={{fontSize: "15px", paddingBottom: "10px"}}>Enter the code sent to {phone}</div>
-      <div style={{paddingLeft: "40px"}}>
-      <TextField variant="filled" label="phone number" value={code} onChange={(e) => setCode(e.target.value)} />
+    <div style={{ margin: "0 auto", width: "500px", paddingLeft: "200px" }}>
+      <div style={{ fontSize: "15px", paddingBottom: "10px" }}>
+        Enter the code sent to {phone}
       </div>
-      <div style={{paddingLeft:"40px"}}>
-      <CustomButton  onClick={() => submit()} label="Submit"/>
-      <CustomButton onClick={() => resend()} label="Resend Link"/>
+      <div style={{ paddingLeft: "40px" }}>
+        <TextField
+          variant="filled"
+          label="Verification Code"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+        />
+      </div>
+      <div style={{ paddingLeft: "40px" }}>
+        <CustomButton onClick={() => submit()} label="Submit" />
+        <CustomButton onClick={() => resend()} label="Resend Link" />
       </div>
     </div>
   );
